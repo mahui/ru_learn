@@ -1,4 +1,4 @@
-use std::{cmp::Ordering, num::IntErrorKind};
+use std::{cmp::Ordering, num::IntErrorKind, string};
 
 use rand::Rng;
 
@@ -8,11 +8,16 @@ fn main() {
     // guess_number();
 
     //元组结构
-    let tup: (i32, f64, i8) =  (5112, 3.14, 100);
+    let tup: (i32, f64, i32) =  (5112, 3.14, 123);
+
+    let tup1 = tup;
 
     println!("first value of tup is {}", tup.0);
+    println!("first value of tup1 is {}", tup1.0);
 
     let (x, y, z) = tup;
+
+    
 
     println!("x is {x}");
     
@@ -30,8 +35,33 @@ fn main() {
     }
 
     let s1 = String::from("hello");
-    let s2 = s1;
-    println!("{} world!",s2);
+
+    println!("s1 is {} , point of s1 is {:p}",s1, &s1);
+    let s2 = s1.clone();
+    // let s3 = s1;
+    
+    println!("s1 is {} , point of s1 is {:p}; s2 is {}, point of s2 is {:p}",s1, &s1, s2, &s2);
+
+    // println!("s3 is {} , point of s3 is {:p}",s3, &s3);
+
+    let x = 10;
+    let y = x;
+
+    println!("x={}, px={:p}; y={}, py={:p}",x,&x,y,&y);
+
+
+    let mut str1 = String::from("hello world");
+    let str2 = &str1;
+    // str2 = {
+    //     String::from("ddd")
+
+    // };
+
+    let str3 = &str1;
+    
+    println!("str1={},Pstr1={:p}\n\rstr2={},Pstr2={:p}",str1,&str1,str2,&str2);
+    
+    println!("str3={},Pstr3={:p}",str3,&str3);
 
 }
 
