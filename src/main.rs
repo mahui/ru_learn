@@ -50,22 +50,57 @@ fn main() {
     println!("x={}, px={:p}; y={}, py={:p}",x,&x,y,&y);
 
 
-    let mut str1 = String::from("hello world");
-    let str2 = &mut str1;
+    let mut s1 = String::from("hello world");
+    let s2 = &mut s1;
    
 
     
     
-    println!("str1={},Pstr1={:p}\n\rstr2={},Pstr2={:p}",*str2,str2,str2,&str2);
+    println!("str1={},Pstr1={:p}\n\rstr2={},Pstr2={:p}",*s2,s2,s2,&s2);
 
-    let str3 = &mut str1;
+    let str3 = &mut s1;
     
     println!("str3={},Pstr3={:p}",str3,&str3);
 
+    //slice
+    println!("{}",first_word(&s1));
+
+    assert_eq!(first_word(&s1),"hello");
+
+    //Struct
+    let mut user = User{
+        name : String::from("张三"),
+        email : String::from("zhangsan@test.com")
+    };
+    user.email = String::from("ddd");
+    println!("name is {}",user.name);
+    println!("email is {}",user.email);
+    let mut user2 = build_user(String::from("lisi"));
+    println!("name is {}",user2.name);
+
+}
+
+struct User{
+    name :String,
+    email :String
+}
+
+fn build_user(name :String) ->User {
+    User { 
+        name: name, 
+        email: String::from("build") 
+    }
 }
 
 
-
+fn first_word(s: &String)-> &str{
+    for (i,item) in s.bytes().into_iter().enumerate(){
+        if item == b' '{
+            return &s[0..i];
+        }
+    }
+    return &s;
+}
 
 
 fn guess_number(){
