@@ -51,15 +51,14 @@ fn main() {
 
 
     let mut str1 = String::from("hello world");
-    let str2 = &str1;
-    // str2 = {
-    //     String::from("ddd")
+    let str2 = &mut str1;
+   
 
-    // };
-
-    let str3 = &str1;
     
-    println!("str1={},Pstr1={:p}\n\rstr2={},Pstr2={:p}",str1,&str1,str2,&str2);
+    
+    println!("str1={},Pstr1={:p}\n\rstr2={},Pstr2={:p}",*str2,str2,str2,&str2);
+
+    let str3 = &mut str1;
     
     println!("str3={},Pstr3={:p}",str3,&str3);
 
