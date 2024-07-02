@@ -85,11 +85,23 @@ fn main() {
     } ;
     println!("u3 name is {}\n\ru3 email is {}",user3.name,user3.email);
 
+    let user4 = User::noname();
+    user4.whoami();
+
 }
 
 struct User{
     name :String,
     email :String
+}
+
+impl User {
+    fn whoami(&self) {
+        println!("I am {}",self.name);
+    }
+    fn noname() -> User{
+        build_user(String::from("无名"))
+    }
 }
 
 fn build_user(name :String) ->User {
