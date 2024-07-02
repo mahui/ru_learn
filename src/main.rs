@@ -78,6 +78,13 @@ fn main() {
     let mut user2 = build_user(String::from("lisi"));
     println!("name is {}",user2.name);
 
+    //使用另一个struct初始化新的struct
+    let user3 = User{
+        name : String::from("wangwu"),
+        ..user
+    } ;
+    println!("u3 name is {}\n\ru3 email is {}",user3.name,user3.email);
+
 }
 
 struct User{
