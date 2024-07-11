@@ -6,6 +6,7 @@ pub mod games;
 
 fn main() {
 
+    ru_learn::eat_at_restaurant();
     //猜数字游戏。包含 io 输入，loop循环，match控制流解构
     GuessNumber::start_game();
 
