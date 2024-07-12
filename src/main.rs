@@ -96,6 +96,13 @@ fn main() {
     let mut v: Vec<i32> = Vec::new();
     v.push(112);
     println!("first values is {}",&v[0]);
+    
+
+    for i in &mut v{
+        *i = *i + 10;
+        println!("{i}");
+    }
+
     let item = v.get(0);
     match item {
         Some(item)=> println!("get first values is {item}"),
