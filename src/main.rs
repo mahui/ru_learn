@@ -91,6 +91,17 @@ fn main() {
     let user4 = User::noname();
     user4.whoami();
 
+
+    //Vector
+    let mut v: Vec<i32> = Vec::new();
+    v.push(112);
+    println!("first values is {}",&v[0]);
+    let item = v.get(0);
+    match item {
+        Some(item)=> println!("get first values is {item}"),
+        None => println!("no such value")
+    }
+
 }
 
 
